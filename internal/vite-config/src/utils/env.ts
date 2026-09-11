@@ -54,6 +54,8 @@ async function loadEnv<T = Record<string, string>>(
       console.error(`Error while parsing ${confFile}`, error);
     }
   }
+  // Match Vite's precedence so deployment variables also reach runtime config.
+  envConfig = { ...envConfig, ...process.env };
   const reg = new RegExp(`^(${match})`);
   Object.keys(envConfig).forEach((key) => {
     if (!reg.test(key)) {
