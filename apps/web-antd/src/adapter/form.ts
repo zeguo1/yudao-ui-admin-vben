@@ -18,6 +18,10 @@ async function initSetupVbenForm() {
 
       // 一些组件是 v-model:checked 或者 v-model:fileList
       modelPropNameMap: {
+        // ApiComponent exposes modelValue; modelPropName only configures its inner control.
+        ApiCascader: 'modelValue',
+        ApiSelect: 'modelValue',
+        ApiTreeSelect: 'modelValue',
         Checkbox: 'checked',
         Radio: 'checked',
         Switch: 'checked',
